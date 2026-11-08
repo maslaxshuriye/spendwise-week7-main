@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise | Personal Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h2 class="logo">SpendWise</h2>
+            <p class="sidebar-label">MENU</p>
+            <nav>
+                <a href="#dashboard" class="active">Dashboard</a>
+                <a href="#expenses">Expenses</a>
+                <a href="#budget">Budget</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <p>Manage your money wisely.</p>
+            </div>
+        </aside>
+
+        <main class="main-content" id="dashboard">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">PERSONAL FINANCE</p>
+                    <h1>My Dashboard</h1>
+                </div>
+                <span class="user-avatar">A</span>
+            </header>
+
+            <section class="welcome">
+                <div>
+                    <p>WELCOME BACK TO SPENDWISE!</p>
+                    <h2>Take control of your money.</h2>
+                    <span>Track your spending and reach your financial goals.</span>
+                </div>
+            </section>
+
+            <section class="summary-grid" id="budget">
+                <article class="summary-card">
+                    <p>Total Budget</p>
+                    <h2 id="totalBudget">KSh 0.00</h2>
+                </article>
+                <article class="summary-card">
+                    <p>Total Expenses</p>
+                    <h2 id="totalExpenses">KSh 0.00</h2>
+                </article>
+                <article class="summary-card">
+                    <p>Remaining Balance</p>
+                    <h2 id="remainingBalance">KSh 0.00</h2>
+                    <span id="balanceMessage">Set your budget to begin</span>
+                </article>
+            </section>
+
+            <section class="panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR FINANCIAL HEALTH</p>
+                        <h2>Budget Progress</h2>
+                    </div>
+                    <span id="budgetPercent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <p id="budgetStatus">Set a budget to monitor your spending.</p>
+                <p id="budgetInsight"></p>
+                <button id="editBudgetBtn" class="secondary-button">Set / Edit Budget</button>
+            </section>
+
+            <section class="panel" id="expenses">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">RECORD YOUR SPENDING</p>
+                        <h2>Add an Expense</h2>
+                    </div>
+                </div>
+
+                <form id="expenseForm">
+                    <div class="form-grid">
+                        <label>
+                            Expense name
+                            <input type="text" id="expenseName" placeholder="e.g. Groceries" required>
+                        </label>
+                        <label>
+                            Amount (KSh)
+                            <input type="number" id="expenseAmount" min="0.01" step="0.01" placeholder="e.g. 500" required>
+                        </label>
+                        <label>
+                            Category
+                            <select id="expenseCategory" required>
+                                <option value="">Choose category</option>
+                                <option>Food</option>
+                                <option>Transport</option>
+                                <option>Education</option>
+                                <option>Bills</option>
+                                <option>Shopping</option>
+                                <option>Health</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                    </div>
+                    <button type="submit" class="primary-button">Add Expense</button>
+                </form>
+                <p id="formMessage" role="status"></p>
+            </section>
+
+            <section class="panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR TRANSACTIONS</p>
+                        <h2>Expense History</h2>
+                    </div>
+                    <span id="expenseCount">0 expenses</span>
+                </div>
+
+                <div class="filter-row">
+                    <input type="search" id="expenseSearch" placeholder="Search expenses...">
+                    <select id="categoryFilter">
+                        <option value="All">All categories</option>
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Education</option>
+                        <option>Bills</option>
+                        <option>Shopping</option>
+                        <option>Health</option>
+                        <option>Other</option>
+                    </select>
+                    <button type="button" id="exportBtn" class="secondary-button">Export CSV</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expense</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseTable">
+                            <tr>
+                                <td colspan="5">No expenses recorded yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer>
+                <p>SpendWise Personal Budget Tracker | Built by Aden Mohamed Abdi</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
